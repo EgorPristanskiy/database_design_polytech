@@ -1,0 +1,21 @@
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE  interns(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(50) NOT NULL,
+    backgroun_id INT NOT NULL AUTO_INCREMENT,
+    skills_id INT NOT NULL AUTO_INCREMENT
+);
+CREATE TABLE  intern_skills(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    intern_id INT FOREIGN KEY REFERENCES interns(id),
+    programming_language_id INT FOREIGN KEY REFERENCES programming_languages(id)
+);
+CREATE TABLE programming_languages(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	language_name VARCHAR(50) NOT NULL
+)
