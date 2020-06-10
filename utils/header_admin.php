@@ -36,6 +36,6 @@
  <div class="topnav">
   <a class="active" >Админ</a>
   <a href="../route/view.php">Просмотр</a>
-  <a href="#contact">Удаление</a>
+  <a href="../route/delete.php">Удаление</a>
   <a href="../route/add_data.php"> Добавить стажера </a>
 </div> 
