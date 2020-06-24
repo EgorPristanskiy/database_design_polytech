@@ -30,10 +30,17 @@
   background-color: #4CAF50;
   color: white;
 }
+.topnav a.exit {
+  background-color: #ff3333;
+  color: white;
+  position: fixed;
+  right: 0;
+}
   </style>
 </head>
 <body>
  <div class="topnav">
   <a class="active" >User</a>
   <a href="../route/user_view.php">Просмотр</a>
+  <a class="exit" href="../route/login.php"> Выход </a>
 </div> 

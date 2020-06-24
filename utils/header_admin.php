@@ -30,6 +30,12 @@
   background-color: #4CAF50;
   color: white;
 }
+.topnav a.exit {
+  background-color: #ff3333;
+  color: white;
+  position: fixed;
+  right: 0;
+}
   </style>
 </head>
 <body>
@@ -38,4 +44,6 @@
   <a href="../route/view.php">Просмотр</a>
   <a href="../route/delete.php">Удаление</a>
   <a href="../route/add_data.php"> Добавить стажера </a>
+  <a href="../route/update.php"> Редактирование </a>
+  <a class="exit" href="../route/login.php"> Выход </a>
 </div> 

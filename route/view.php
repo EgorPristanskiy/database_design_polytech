@@ -18,11 +18,24 @@ if ($_POST["criteria"] == "it_skills")
 	$intern_id = $_POST["full_name"];
 	$result_table_head = array("ФИО", "Языки программирования");
 	$result = mysqli_query($mysqli, "SELECT * FROM interns WHERE id = '$intern_id'");
-	$intern_name =$result->fetch_assoc()['full_name'];
-	$result = mysqli_query($mysqli, "SELECT * FROM intern_skills WHERE intern_id = '$intern_id'");
-	$programming_language_id = $result->fetch_assoc()['programming_language_id'];
-    $result_ = mysqli_query($mysqli, "SELECT * FROM programming_languages WHERE id = '$programming_language_id'");
-	$programming_language = $result_->fetch_assoc()['language_name'];
+    $intern_name =$result->fetch_assoc()['full_name'];
+    $result = mysqli_query($mysqli, "SELECT * FROM intern_skills WHERE intern_id = '$intern_id'");
+    $language_id_array = array();
+    while ($row = $result->fetch_assoc()) {
+        array_push($language_id_array, $row["programming_language_id"]);
+    }
+    $programming_language_array = array();
+    foreach($language_id_array as $programming_language_id)
+    {
+        $result_ = mysqli_query($mysqli, "SELECT * FROM programming_languages WHERE id = '$programming_language_id'");
+        array_push($programming_language_array, $result_->fetch_assoc()['language_name']);
+    }
+    $result_language_string = '';
+    foreach($programming_language_array as $language)
+    {
+        $result_language_string .= $language;
+        $result_language_string .= ' ';
+    }
     echo '<table border=2>';
     echo "<tr>";
     foreach ($result_table_head as $key ) {
@@ -31,7 +44,7 @@ if ($_POST["criteria"] == "it_skills")
     echo "</tr>";
     echo "<tr>";
     echo "<td>", $intern_name, "</td>";
-    echo "<td>", $programming_language, "</td>";
+    echo "<td>", $result_language_string, "</td>";
     echo "</tr>";
     echo "</table>";}
 ?>
