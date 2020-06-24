@@ -14,7 +14,6 @@ function insert_data($mysqli, $data )
 		$keys = array('intern_id', 'programming_language_id');
 		$values = array($user_id, $value_programming_languages_table[0]);
 		$query_ = "INSERT INTO intern_skills ( ". implode(',' , $keys) .") VALUES('". implode("','" , $values) ."')";
-		echo $query_;
 		mysqli_query($mysqli, $query_);
 	}
 }
