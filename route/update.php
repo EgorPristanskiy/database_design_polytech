@@ -10,6 +10,8 @@ require_once("../utils/intern_table_config.php");
 <option value='add_language'>Добавить язык</option> 
 <option value='change_language'> Изменить язык </option>
 <option value='delete_language'> Удалить запись о языке </option> 
+<option value='change_start_time'> Изменить дату начала стажировки </option>
+<option value='change_end_time'> Изменить дату окончания стажировки </option>
 </select>
 <input type="submit" value="Принять">
 </form>
@@ -46,6 +48,36 @@ elseif ($_POST['criteria'] == 'delete_language')
     include("../utils/show_interns.php");
     echo '<input type="submit" name="delete_data" value="Выбрать Стажера">';
     echo '</form>';
+}
+elseif($_POST['criteria'] == 'change_start_time')
+{
+    echo '<form action="update.php" method="POST">';
+    include("../utils/show_interns.php");
+    include("../utils/start_date_form.php");
+    echo '<input type="submit" name="change_start_time" value="Установить дату">';
+    echo '</form>';
+}
+elseif(isset($_POST['change_start_time']))
+{
+    $id = $_POST["full_name"];
+    $date = $_POST["start_time"];
+    $sql = "UPDATE interns SET start_time='$date' WHERE id='$id'";
+    mysqli_query($mysqli, $sql);
+}
+elseif ($_POST['criteria'] == "change_end_time")
+{
+    echo '<form action="update.php" method="POST">';
+    include("../utils/show_interns.php");
+    include("../utils/end_date_form.php");
+    echo '<input type="submit" name="change_end_time" value="Установить дату">';
+    echo '</form>';
+}
+elseif(isset($_POST['change_end_time']))
+{
+    $id = $_POST["full_name"];
+    $date = $_POST["end_time"];
+    $sql = "UPDATE interns SET end_time='$date' WHERE id='$id'";
+    mysqli_query($mysqli, $sql);
 }
 elseif (isset($_POST['сhoose_intern'])) {
     echo '<form action="update.php" method="POST">';

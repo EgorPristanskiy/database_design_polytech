@@ -2,7 +2,8 @@
 require_once("../utils/intern_table_config.php");
 function insert_data($mysqli, $table_name, $data )
 {
-	$key_intern_table = array("full_name");
+	echo $data["start_time"];
+	$key_intern_table = array("full_name", "start_time");
 	$key_programming_languages_table = array("language_name");
 	foreach($key_intern_table as $key) {
     	$value_intern_table[] = $data[$key];}
