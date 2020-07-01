@@ -1,10 +1,16 @@
 <?php
 require_once("../utils/intern_table_config.php");
-$sql = "SELECT * FROM interns";
-$result_select = mysqli_query($mysqli, $sql);
-echo "<select name = 'full_name'>";
-echo "<option value='0'>Стажер</option>";
-while($object = mysqli_fetch_object($result_select)){
-echo "<option value = '$object->id' >$object->id $object->full_name </option>";}
-echo "</select>";
+$sql = "SELECT * FROM vacancy";
+$result =  mysqli_query($mysqli, $sql);
+echo '<form action="view.php" method="POST">';
+echo "<br>";
+while($row = mysqli_fetch_array($result))
+{
+    $id = $row["id"];
+    echo $id.' ';
+    echo $row["name"]. ' ';
+    echo '<input type="submit" name='.$id.' value="Выбрать">';
+    echo '<br>';
+}
+echo '</form>';
 ?>

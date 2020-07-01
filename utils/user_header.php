@@ -3,35 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>DataBase</title>
-  <style type="text/css">
+    <style type="text/css">
     .topnav {
-  background-color: #333;
+  background-color: #faf0e6;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: #222222;
   text-align: center;
-  padding: 14px 16px;
+  padding: 18px 17px;
   text-decoration: none;
+  font-family: sans-serif;
   font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #fadadd;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #4CAF50;
+  background-color: #db7093;
   color: white;
 }
 .topnav a.exit {
-  background-color: #ff3333;
+  background-color: #560319;
   color: white;
   position: fixed;
   right: 0;
@@ -42,5 +43,6 @@
  <div class="topnav">
   <a class="active" >User</a>
   <a href="../route/user_view.php">Просмотр</a>
+  <a href="../route/user_view_wanted_vacancy.php"> Просмотр желаемых вакансий </a>
   <a class="exit" href="../route/login.php"> Выход </a>
 </div> 
